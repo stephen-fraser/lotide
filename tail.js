@@ -12,7 +12,7 @@ const assertEqual = function(actual, expected) {
 
 // Tail Function
 
-const tail = function(someArray) {
+const tail = function (someArray) {
   return someArray.slice(1);
 };
 
