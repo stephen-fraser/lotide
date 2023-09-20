@@ -39,19 +39,19 @@ const middle = function(someArray) {
     if (someArray.length % 2 !== 0) {
       middleArray.push(someArray[Math.floor((someArray.length) / 2)]);
     } else {
+      middleArray.push(someArray[Math.floor((someArray.length) / 2) - 1]);
       middleArray.push(someArray[Math.floor((someArray.length) / 2)]);
-      middleArray.push(someArray[Math.floor((someArray.length) / 2) + 1]);
     }
   }
   return middleArray;
 };
 
 // Tests
-// let array1 = [1, 2, 3, 4, 5];
-// let array2 = [1, 2, 3, 4];
-// let array3 = [1, 2];
-// let array4 = [1, 2, 3, 4, 5, 6];
-// console.log(middle(array1));
-// console.log(middle(array2));
-// console.log(middle(array3));
-// console.log(middle(array4));
+let array1 = [1, 2, 3, 4, 5];
+let array2 = [1, 2, 3];
+let array3 = [1, 2];
+let array4 = [1, 2, 3, 4, 5, 6];
+console.log(middle(array1));
+console.log(middle(array2));
+console.log(middle(array3));
+console.log(middle(array4));
