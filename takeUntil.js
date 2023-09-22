@@ -1,7 +1,6 @@
 //
-// ctrl v from assertArraysEqual (which depends up eqArrays)
+// functions to test output 
 //
-
 const eqArrays = function(array1, array2) {
 
   if (array1.length !== array2.length) {
@@ -26,31 +25,32 @@ const assertArraysEqual = function(actual, expected) {
   }
 };
 
-const words = ["ground", "control", "to", "major", "tom"];
-
-
 //
-// map function starts here
+// takeUntil formula 
 //
+const takeUntil = (array, callback) => {
 
-const map = (array, callback) => {
-  const results = [];
-  for (let item of array) {
-    results.push(callback(item));
-  }
-  return results;
+  let end = array.findIndex(callback);
+  return array.slice(0, end)
 }
 
+//
+// input data
+//
+const data1 = [1, 2, 5, 7, 2, -1, 2, 4, 5];
 
-//
-// testing map function
-//
-const results1 = map(words, word => word[0]);
+const results1 = takeUntil(data1, x => x < 0);
 console.log(results1);
 
-assertArraysEqual(results1, ['g', 'c', 't', 'm', 't'])
+console.log('---');
 
-const results2 = map(words, word => word.length)
-console.log(results2)
+const data2 = ["I've", "been", "to", "Hollywood", ",", "I've", "been", "to", "Redwood"];
 
-assertArraysEqual(results2, [6, 7, 2, 5, 3])
+const results2 = takeUntil(data2, x => x === ',');
+console.log(results2);
+
+
+// Expected Output
+// [ 1, 2, 5, 7, 2 ]
+// --
+// [ 'I\'ve', 'been', 'to', 'Hollywood' ]
